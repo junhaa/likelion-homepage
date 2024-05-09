@@ -18,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 public class UserService {
 	private final UserRepository userRepository;
 
+	@Transactional
 	public CustomApiResponse<?> signup(UserSignupDto request){
 		if(userRepository.findByUserId(request.getUserId()).isPresent()) throw new GeneralException(ErrorStatus._USER_ID_DUPLICATE);
 
@@ -27,6 +28,6 @@ public class UserService {
 			.email(request.getEmail())
 			.build();
 
-		return CustomApiResponse.createSuccess(user);
+		return CustomApiResponse.createSuccess(userRepository.save(user));
 	}
 }
