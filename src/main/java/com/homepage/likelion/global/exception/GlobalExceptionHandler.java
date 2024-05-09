@@ -14,14 +14,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import com.homepage.likelion.global.enums.ErrorStatus;
 import com.homepage.likelion.global.response.CustomApiResponse;
 
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
 	@ExceptionHandler(GeneralException.class)
-	public ResponseEntity<Object> handleGeneralException(GeneralException exception, HttpServletRequest request) {
+	public ResponseEntity<Object> handleGeneralException(GeneralException exception) {
 		return handlingException(exception.getHttpStatus(), exception.getErrorReason());
 	}
 
@@ -57,6 +56,11 @@ public class GlobalExceptionHandler {
 			.collect(Collectors.joining("; "));
 
 		return handlingException(ErrorStatus._BAD_REQUEST.getHttpStatus(), errorMessage);
+	}
+
+	@ExceptionHandler
+	public ResponseEntity<Object> handlingException(Exception exception) {
+		return handlingException(ErrorStatus._INTERNAL_SERVER_ERROR.getHttpStatus(), exception.getMessage());
 	}
 
 

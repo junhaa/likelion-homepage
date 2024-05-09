@@ -8,8 +8,10 @@ public enum ErrorStatus implements BaseCode {
 	_UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "COMMON401", "인증이 필요합니다."),
 	_FORBIDDEN(HttpStatus.FORBIDDEN, "COMMON403", "금지된 요청입니다."),
 	_NOT_FOUND(HttpStatus.NOT_FOUND, "COMMON404", "요청 경로를 찾을 수 없습니다."),
-	_METHOD_NOT_ALLOWED(HttpStatus.METHOD_NOT_ALLOWED, "COMMON405", "접근이 금지되었습니다.");
+	_METHOD_NOT_ALLOWED(HttpStatus.METHOD_NOT_ALLOWED, "COMMON405", "접근이 금지되었습니다."),
 
+	// User
+	_USER_ID_DUPLICATE(HttpStatus.BAD_REQUEST, "USER4001", "중복된 아이디 입니다.");
 
 	private final HttpStatus httpStatus;
 	private final String code;
