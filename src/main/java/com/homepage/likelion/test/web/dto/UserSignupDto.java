@@ -1,4 +1,4 @@
-package com.homepage.likelion.test;
+package com.homepage.likelion.test.web.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SignupDto {
+public class UserSignupDto {
 	@NotBlank(message =  "userId는 필수값입니다.")
 	private String userId;
 	@Email

@@ -1,4 +1,4 @@
-package com.homepage.likelion.test;
+package com.homepage.likelion.test.web.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.homepage.likelion.global.response.CustomApiResponse;
+import com.homepage.likelion.test.web.dto.SimpleDto;
 
 @RestController
 @RequestMapping("/api/customResponse")

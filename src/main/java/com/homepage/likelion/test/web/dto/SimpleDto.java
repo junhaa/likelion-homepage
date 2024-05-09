@@ -1,4 +1,4 @@
-package com.homepage.likelion.test;
+package com.homepage.likelion.test.web.dto;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
