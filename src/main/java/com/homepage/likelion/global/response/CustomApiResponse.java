@@ -1,4 +1,4 @@
-package com.homepage.likelion.util.response;
+package com.homepage.likelion.global.response;
 
 import org.springframework.http.HttpStatus;
 
