@@ -1,5 +1,6 @@
 package com.homepage.likelion.test.service;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 @Transactional(readOnly = true)
 public class UserService {
 	private final UserRepository userRepository;
+	private final PasswordEncoder passwordEncoder;
 
 	@Transactional
 	public CustomApiResponse<?> signup(UserSignupDto request){
@@ -24,7 +26,7 @@ public class UserService {
 
 		User user = User.builder()
 			.userId(request.getUserId())
-			.password(request.getPassword())
+			.password(passwordEncoder.encode(request.getPassword()))
 			.email(request.getEmail())
 			.build();
 
