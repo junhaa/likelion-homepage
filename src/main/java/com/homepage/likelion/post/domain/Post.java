@@ -38,4 +38,8 @@ public class Post extends BaseEntity {
 	@Column(name = "posts_password")
 	private String password;
 
+	public void updatePost(String content, String title){
+		this.content = content;
+		this.title = title;
+	}
 }

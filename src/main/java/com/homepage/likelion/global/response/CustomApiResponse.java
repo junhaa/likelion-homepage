@@ -3,6 +3,7 @@ package com.homepage.likelion.global.response;
 import org.springframework.http.HttpStatus;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.homepage.likelion.global.enums.ErrorStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,8 +24,15 @@ public class CustomApiResponse<T> {
 		return createSuccess(HttpStatus.OK.value(), data,  "성공");
 	}
 
+	public static <T> CustomApiResponse<T> createSuccess(T data, String message){
+		return createSuccess(HttpStatus.OK.value(), data,  message);
+	}
 	public static <T> CustomApiResponse<T>  createFailWithout(int status, String message){
 		return new CustomApiResponse<>(status, null, message);
+	}
+
+	public static <T> CustomApiResponse<T> createFailWithout(ErrorStatus errorStatus){
+		return new CustomApiResponse<>(errorStatus.getHttpStatus().value(), null, errorStatus.getMessage());
 	}
 
 	public static <T> CustomApiResponse<T> createFailWithout(HttpStatus httpStatus){

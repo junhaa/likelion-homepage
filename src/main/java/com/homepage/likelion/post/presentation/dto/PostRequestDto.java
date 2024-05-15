@@ -18,4 +18,18 @@ public class PostRequestDto {
 		private String content;
 
 	}
+
+
+	@Getter
+	@Setter
+	public static class PostModifyDto{
+		@NotBlank(message = "작성자 이름을 작성해주세요.")
+		private String postedUserName;
+		@NotBlank(message = "게시글 이름을 작성해주세요.")
+		private String title;
+		@NotBlank(message = "게시글 내용을 작성해주세요.")
+		private String content;
+
+	}
+
 }

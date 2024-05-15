@@ -20,4 +20,14 @@ public class PostConverter {
 			.content(request.getContent())
 			.build();
 	}
+
+	public static PostResponseDto.PostDetailDto toPostDetailDto(Post post){
+		return PostResponseDto.PostDetailDto.builder()
+			.posted_user_name(post.getPostedUserName())
+			.title(post.getTitle())
+			.content(post.getContent())
+			.created_at(post.getCreatedAt())
+			.updated_at(post.getUpdatedAt())
+			.build();
+	}
 }

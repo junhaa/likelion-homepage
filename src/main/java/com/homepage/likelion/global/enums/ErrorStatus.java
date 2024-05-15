@@ -10,6 +10,11 @@ public enum ErrorStatus implements BaseCode {
 	_NOT_FOUND(HttpStatus.NOT_FOUND, "COMMON404", "요청 경로를 찾을 수 없습니다."),
 	_METHOD_NOT_ALLOWED(HttpStatus.METHOD_NOT_ALLOWED, "COMMON405", "접근이 금지되었습니다."),
 
+	// Post
+	_POST_NOT_FOUND(HttpStatus.BAD_REQUEST, "POST4001", "존재하지 않는 게시글입니다."),
+	_POST_FORBIDDEN(HttpStatus.FORBIDDEN, "POST4002", "게시글에 대한 접근 권한이 없습니다."),
+
+
 	// User
 	_USER_ID_DUPLICATE(HttpStatus.BAD_REQUEST, "USER4001", "중복된 아이디 입니다.");
 
